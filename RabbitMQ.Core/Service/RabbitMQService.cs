@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace RabbitMQ.Core.Service
 {
-    public class RabbitMQService<T> where T : class
+    public class RabbitMQService : IRabbitMQService
     {
         
         public (IConnection, IModel) CreateConnection()
@@ -46,7 +46,7 @@ namespace RabbitMQ.Core.Service
             return result;
         }
 
-        public void SendMessage(IModel model, string exchange, string routingKey, T data, IBasicProperties basicProperties = null)
+        public void SendMessage<T>(IModel model, string exchange, string routingKey, T data, IBasicProperties basicProperties = null)
         {
             var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(data));
             model.BasicPublish(exchange: exchange, routingKey: routingKey, body: body, basicProperties: basicProperties);

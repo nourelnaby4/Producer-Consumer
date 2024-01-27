@@ -16,4 +16,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RabbitMQ.Core\RabbitMQ.Core.csproj" />
+  </ItemGroup>
+
 </Project>

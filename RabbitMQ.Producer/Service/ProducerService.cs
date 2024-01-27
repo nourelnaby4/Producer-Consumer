@@ -3,14 +3,14 @@ using RabbitMQ.Core.Service;
 
 namespace RabbitMQ.Producer.Service
 {
-    public class ProducerService
+    public class ProducerService : IProducerService
     {
-        private readonly RabbitMQService<string> _rabbitMQService;
+        private readonly RabbitMQService _rabbitMQService;
         private static readonly string rouingkey = "key.log";
         private static readonly string queue = "message-queue";
         private static readonly string exchange = "message-exchange";
         
-        public ProducerService(RabbitMQService<string> rabbitMQService)
+        public ProducerService(RabbitMQService rabbitMQService)
         {
             _rabbitMQService = rabbitMQService;
         }
@@ -19,6 +19,7 @@ namespace RabbitMQ.Producer.Service
             //: TODO bussiness logic
             var (_, model)= _rabbitMQService.CreateConnection();
             _rabbitMQService.DeclareQuorumQueue(model,queue,exchange,ExchangeType.Direct,rouingkey);
+          
             _rabbitMQService.SendMessage(model,exchange,rouingkey,message);
         }
     }
