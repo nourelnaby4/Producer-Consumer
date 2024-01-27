@@ -6,7 +6,7 @@ namespace RabbitMQ.Producer.Service
     public class ProducerService : IProducerService
     {
         private readonly IRabbitMQService _rabbitMQService;
-        private static readonly string rouingkey = "key.log";
+        private static readonly string rouingkey = "message-key";
         private static readonly string queue = "message-queue";
         private static readonly string exchange = "message-exchange";
         

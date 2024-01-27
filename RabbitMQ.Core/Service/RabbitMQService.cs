@@ -15,9 +15,8 @@ namespace RabbitMQ.Core.Service
             ConnectionFactory connection = new ConnectionFactory()
             {
                 HostName = "localhost",
-                VirtualHost = "/",
-                UserName = "gust",
-                Password = "gust",
+                UserName="guest",
+                Password="guest"
             };
             connection.DispatchConsumersAsync = true;
             var channel = connection.CreateConnection();

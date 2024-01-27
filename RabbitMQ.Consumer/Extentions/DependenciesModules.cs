@@ -6,7 +6,7 @@ namespace RabbitMQ.Consumer.Extentions
     {
         public static IServiceCollection AddDependenciesConsumer(this IServiceCollection service)
         {
-            service.AddScoped<IConsumerService, ConsumerService>();
+            service.AddSingleton<IConsumerService, ConsumerService>();
             service.AddHostedService<HostedService>();
 
             return service;
