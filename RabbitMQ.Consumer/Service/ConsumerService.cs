@@ -6,12 +6,12 @@ namespace RabbitMQ.Consumer.Service
 { 
     public class ConsumerService : IConsumerService
     {
-        private readonly RabbitMQService _rabbiService;
+        private readonly IRabbitMQService _rabbiService;
         private readonly IConnection _connection;
         private readonly IModel _model;
         private static readonly string queue = "message-queue";
         public ConsumerService(
-            RabbitMQService rabbiService,
+            IRabbitMQService rabbiService,
             IConnection connection,
             IModel model) 
         {

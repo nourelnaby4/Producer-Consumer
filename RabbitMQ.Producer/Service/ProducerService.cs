@@ -5,12 +5,12 @@ namespace RabbitMQ.Producer.Service
 {
     public class ProducerService : IProducerService
     {
-        private readonly RabbitMQService _rabbitMQService;
+        private readonly IRabbitMQService _rabbitMQService;
         private static readonly string rouingkey = "key.log";
         private static readonly string queue = "message-queue";
         private static readonly string exchange = "message-exchange";
         
-        public ProducerService(RabbitMQService rabbitMQService)
+        public ProducerService(IRabbitMQService rabbitMQService)
         {
             _rabbitMQService = rabbitMQService;
         }
